@@ -1,0 +1,8 @@
+{
+  "title_basic": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.basics.tsv.gz",
+  "title_rating": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.ratings.tsv.gz",
+  "title_akas": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.akas.tsv.gz",
+  "title_principal": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.principals.tsv.gz",
+  "name_basic":"C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/name.basics.tsv.gz",
+  "output_path": "output.csv"
+}

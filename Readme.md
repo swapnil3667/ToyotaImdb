@@ -46,12 +46,16 @@ different titles of the 10 movies.
 Here I provide some important configurations to run the application, which are:
 ```$xslt
 {
-  "title_basic": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.basics.tsv.gz",
-  "title_rating": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.ratings.tsv.gz",
-  "title_akas": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.akas.tsv.gz",
-  "title_principal": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.principals.tsv.gz",
-  "name_basic":"C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/name.basics.tsv.gz",
+{
+  "title_basic": "path/to/title.basics.tsv.gz",
+  "title_rating": "path/to//title.ratings.tsv.gz",
+  "title_akas": "path/to//title.akas.tsv.gz",
+  "title_principal": "path/to//title.principals.tsv.gz",
+  "name_basic":"path/to//name.basics.tsv.gz",
+  "top_n": 10,
+  "minimum_votes" : 500,
   "output_path": "output.csv"
+}
 }
 ``` 
 

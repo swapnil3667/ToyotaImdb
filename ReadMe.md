@@ -42,22 +42,25 @@ different titles of the 10 movies.
 5. finally did a groupby on title id , aggregate the list of unique person name associated with each title of top 10 movies 
 
 ###  Important files
- ***config file*** :  config/config.json 
-Here I provide some important configurations to run the application, which are:
+The following are essential configuration parameters required for application execution:
+
+ ***config file*** :  configs/config.json
+
+ Please ensure that the input file paths are accurately updated prior to executing the job.
 ```$xslt
 {
   "title_basic": "path/to/title.basics.tsv.gz",
-  "title_rating": "path/to//title.ratings.tsv.gz",
-  "title_akas": "path/to//title.akas.tsv.gz",
-  "title_principal": "path/to//title.principals.tsv.gz",
-  "name_basic":"path/to//name.basics.tsv.gz",
+  "title_rating": "path/to/title.ratings.tsv.gz",
+  "title_akas": "path/to/title.akas.tsv.gz",
+  "title_principal": "path/to/title.principals.tsv.gz",
+  "name_basic":"path/to/name.basics.tsv.gz",
   "top_n": 10,
   "minimum_votes" : 500,
   "output_path": "output.csv"
 }
 ``` 
 
-***scripts*** : 
+***script*** : 
 
     1. run-local.sh: to run locally
     2. deploy-cluster.sh : template to deploy on spark cluster 
@@ -87,3 +90,6 @@ docker pull apache/spark
 ```
 docker run -it -v $PWD:/opt/spark/work-dir apache/spark bash ./run-local.sh
 ```
+
+### Note
+Since I have been mostly till date Scala user for writing Spark application, to be open I took some motivation for pyspark directory structure from this [blog](https://pyspark-tdd-template.readthedocs.io/en/latest/intro.html)

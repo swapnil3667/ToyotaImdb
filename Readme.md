@@ -46,7 +46,6 @@ different titles of the 10 movies.
 Here I provide some important configurations to run the application, which are:
 ```$xslt
 {
-{
   "title_basic": "path/to/title.basics.tsv.gz",
   "title_rating": "path/to//title.ratings.tsv.gz",
   "title_akas": "path/to//title.akas.tsv.gz",
@@ -55,7 +54,6 @@ Here I provide some important configurations to run the application, which are:
   "top_n": 10,
   "minimum_votes" : 500,
   "output_path": "output.csv"
-}
 }
 ``` 
 

@@ -4,5 +4,7 @@
   "title_akas": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.akas.tsv.gz",
   "title_principal": "C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/title.principals.tsv.gz",
   "name_basic":"C:/Users/Siddhartha/PycharmProjects/ToyotaImdb/resources/name.basics.tsv.gz",
+  "top_n": 10,
+  "minimum_votes" : 500,
   "output_path": "output.csv"
 }

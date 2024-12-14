@@ -20,9 +20,9 @@ Retrieve the top 10 movies with a minimum of 500 votes with the ranking determin
 (numVotes/averageNumberOfVotes) * averageRating
 
 #### Approach
-1. Since we were interested in only movies with minimum of 500 votes , filtered datasets title.ratings.tsv.gz with votes > 500
-2. Then I selected movies from title.basics.tsv.gz datasets
-3. Finally did a inner join on title and rating datasets , and sorted them in descending order on basis of rating
+1. Since we were interested in only movies with minimum of 500 votes , filtered datasets `title.ratings.tsv.gz` with votes > 500
+2. Subsequently, I extracted only movies from the `title.basics.tsv.gz` dataset.
+3. Performed an inner join on the title and rating datasets, subsequently sorting the resultant dataset in descending order based on the rating attribute.
 
 ### Problem 2:
 
@@ -30,14 +30,14 @@ For these 10 movies, list the persons who are most often credited and list the
 different titles of the 10 movies.
 
 ##### Different titles of the movie
-1. Once I retrieved top 10 movies from problem 1 
-2. I performed inner join of above dataset with title.akas.tsv.gz
+1. Utilized the top n movies identified in Problem 1
+2. Executed an inner join of the aforementioned dataset with `title.akas.tsv.gz`.
 3. Grouped them on tconst(title unique id) and primaryTitle and aggregated unique set of titles in a List 
 
 ##### List of person often credited
-1. Used the top 10 movies from problem 1
+1. Utilized the top n movies identified in Problem 1.
 2. Created a list important_person_category = ["actor", "actress", "director", "producer"]
-3. Filtered title.principals.tsv.gz dataset for important person category 
+3. Filtered `title.principals.tsv.gz` dataset for important person category 
 4. Then joined it with top movies df on unique title id
 5. finally did a groupby on title id , aggregate the list of unique person name associated with each title of top 10 movies 
 
@@ -63,8 +63,12 @@ Here I provide some important configurations to run the application, which are:
 
     1. run-local.sh: to run locally
     2. deploy-cluster.sh : template to deploy on spark cluster 
-   
+
 ### Steps to run the code 
+
+Install following in bash:
+* make
+* docker
 
 Set of commands 
 

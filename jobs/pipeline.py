@@ -121,5 +121,4 @@ def run(spark: SparkSession, config: Dict, logger) -> bool:
     load(top_movie_person_df, config, logger)
 
     logger.warn("Pipeline is complete")
-    spark.stop()
     return True

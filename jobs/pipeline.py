@@ -1,5 +1,6 @@
+from numpy.ma.extras import average
 from pyspark.sql import DataFrame, SparkSession
-from pyspark.sql.functions import col, collect_set
+from pyspark.sql.functions import col, collect_set, avg
 from typing import Dict
 
 
@@ -29,14 +30,19 @@ def transform_top_n_movies(title_basic_df: DataFrame, title_rating_df: DataFrame
     """
     movies_titles_df = title_basic_df.filter(title_basic_df["titleType"] == 'movie')
 
+    #  (numVotes/averageNumberOfVotes) * averageRating
+
     title_rating_df = title_rating_df.filter(col("numVotes") >= config["minimum_votes"])
+    average_rating = title_rating_df.select(avg(col("numVotes")).alias("average")).collect()[0].__getitem__('average')
 
-    transformed_df = (movies_titles_df
-                .join(title_rating_df, movies_titles_df["tconst"] == title_rating_df["tconst"], "inner").select(
+    transformed_df = (movies_titles_df.join(title_rating_df, movies_titles_df["tconst"] == title_rating_df["tconst"], "inner")
+    .withColumn("finalRating",col("numVotes")/average_rating * col("averageRating"))
+        .select(
         movies_titles_df["tconst"], movies_titles_df["primaryTitle"], movies_titles_df["originalTitle"],
-        title_rating_df["averageRating"]))
+        col("finalRating")))
 
-    result_df = transformed_df.orderBy(transformed_df["averageRating"], ascending=False).limit(config["top_n"])
+
+    result_df = transformed_df.orderBy(transformed_df["finalRating"], ascending=False).limit(config["top_n"])
     return result_df
 
 
